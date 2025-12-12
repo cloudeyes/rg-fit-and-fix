@@ -100,7 +100,7 @@ onMounted(async () => {
 
 .rg-cell-buttons {
   @apply mr-1.5;
-  & > .rg-button-action {
+  & > .rg-button-popup {
     z-index: 1;
     outline: 1px solid #dadfe4;
     outline-offset: -1px;
@@ -128,7 +128,7 @@ onMounted(async () => {
     @apply flex items-center justify-center w-full! px-1.5!;
     margin-top: -6px;
     position: inherit !important;
-    .rg-button-action {
+    .rg-button-popup {
       height: 14px !important;
       width: 14px !important;
       min-width: 14px !important;

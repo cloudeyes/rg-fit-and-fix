@@ -119,10 +119,10 @@ const LOT_LIST_COLUMNS = [
   { name: "eqpId", fieldName: "EQP_ID", header: { text: "EQP ID" }, autoFilter: true, fillWidth: 1 },
   {
     name: "option",
-    fieldName: "_option",
+    type:"literal",
     header: { text: "  ", styleName: "rg-cell-button-only" },
     width: 28,
-    button: "action",
+    button: "popup",
     popupMenu: "menu1",
     buttonVisibility: "always",
     fillWidth: 0,
