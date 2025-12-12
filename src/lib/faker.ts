@@ -116,7 +116,7 @@ const LOT_LIST_TEMPLATE: LotListRow[] = [
 ];
 
 const LOT_LIST_COLUMNS = [
-  { name: "eqpId", fieldName: "EQP_ID", header: { text: "EQP ID" }, autoFilter: true },
+  { name: "eqpId", fieldName: "EQP_ID", header: { text: "EQP ID" }, autoFilter: true, fillWidth: 1 },
   {
     name: "option",
     fieldName: "_option",
@@ -129,8 +129,8 @@ const LOT_LIST_COLUMNS = [
     resizable: false,
     styleName: "rg-cell-button-only",
   },
-  { name: "unit", fieldName: "UNIT", header: { text: "Chamber" }, autoFilter: true },
-  { name: "lotId", fieldName: "LOT_ID", header: { text: "Lot ID" } },
+  { name: "unit", fieldName: "UNIT", header: { text: "Chamber" }, autoFilter: true, fillWidth: 1 },
+  { name: "lotId", fieldName: "LOT_ID", header: { text: "Lot ID" }, fillWidth: 1 },
   // { name: "area", fieldName: "AREA", header: { text: "Area" }, autoFilter: true },
   // { name: "sdwt", fieldName: "SDWT", header: { text: "SDWT" }, autoFilter: true },
   // { name: "eqpModel", fieldName: "EQP_MODEL", header: { text: "EQP Model" }, autoFilter: true },

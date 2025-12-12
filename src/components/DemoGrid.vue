@@ -13,13 +13,67 @@ import { GridFitStyle, LocalDataProvider } from "realgrid";
 const gridRef = ref<RealGridVue>();
 let dataProvider: LocalDataProvider | null = null
 
+const menu = [
+  {
+    label: "menu1 입니다.",
+    enabled: true,
+    children: [
+      {
+        label: "submenu1 입니다."
+      },
+      {
+        label: "submenu2 입니다."
+      }
+    ]
+  },
+  {
+    label: "menu2 입니다",
+    enabled: false
+  },
+  {
+    label: "-"
+  },
+  {
+    label: "menu3 입니다",
+    type: "check", //check 설정
+    checked: true, //check 상태
+    tag: "check_menu"
+  },
+  {
+    label: "group menu", //group 및 radio
+    children: [
+      {
+        label: "group1 - 첫번째",
+        type: "radio",
+        group: "group1",
+        checked: true
+      },
+      {
+        label: "group1 - 두번째",
+        type: "radio",
+        group: "group1"
+      },
+      {
+        label: "group1 - 세번째",
+        type: "radio",
+        group: "group1"
+      }
+    ]
+  }
+];
+
 onMounted(async () => {
   const gridView = gridRef.value?.gridView;
   dataProvider = new LocalDataProvider(false);
   dataProvider.setFields(createLotListFields());
-  console.log(gridView);
 
   if (!gridView) return;
+
+  // 팝업 메뉴 추가
+  gridView.addPopupMenu("menu1", menu);
+  gridView.onMenuItemClicked = function(grid, data, index) {
+    alert(data.label);
+  };
 
   gridView.setColumns(createLotListColumns())
   gridView.setDataSource(dataProvider);
@@ -27,15 +81,16 @@ onMounted(async () => {
     fitStyle: GridFitStyle.FILL,
   })
 
-
   gridView.showLoading()
 
   await new Promise((resolve) => setTimeout(resolve, 300))
   dataProvider.setRows(createLotListRows())
+  gridView.refresh()
   await nextTick()
 
   gridView.displayOptions.minCellWidth = 28;
   gridView.fitLayoutWidth('option', 28, 28)
+
   gridView.closeLoading()
 });
 </script>
